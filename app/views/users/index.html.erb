@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="col-sm-6 col-md-4 offset-md-4 offset-sm-3 col-8 offset-2" style="margin-top: 100px">
+  <div class="card" style="border-radius: 20px">
+    <div class="card-header border-5 border-warning" style="background: #48a1ea">
+      <h4 class="card-title offset-4 offset-sm-5" style="color: white">
+         Login
+      </h4>
+    </div>
+    <form action="/sessions" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+      <div class="mb-3 mt-3 col-12 offset-2 offset-sm-2">
+        <label for="exampleFormControlInput1" class="form-label">E-mail</label>
+        <div class="col-lg-8 col-8">
+          <input type="email" class="form-control" id="exampleFormControlInput1" name="login[email]" placeholder="name@example.com">
+        </div>
+      </div>
+      <div class="mb-5 offset-2 offset-sm-2 col-12">
+        <label for="inputPassword" class="col-sm-4 col-form-label">Senha</label>
+        <div class="col-lg-8 col-8">
+          <input type="password" class="form-control" name="login[password]" id="inputPassword">
+        </div>
+      </div>
+      <div class="card-footer p-1 pr-1 text-center">
+        <div class="row">
+          <div class="col pb-0">
+              <%= link_to 'Esqueceu a senha?', new_user_path, :class => "btn btn-light waves-effect waves-light" %>
+          </div>
+          <div class="col">
+          <input type="submit" placeholder="password" class="submit btn btn-warning border-1 waves-effect waves-light border-primary" name="submit">
+        </div>
+      </div>
+      <div>
+    </form>
+  </div>
+
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

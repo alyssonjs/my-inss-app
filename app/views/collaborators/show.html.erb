@@ -1,0 +1,106 @@
+<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mt-5 pt-3">
+  <div class="container-fluid">
+    <i class="fas fa-id-card fa-2x mt-1" ></i>
+    <a class="navbar-brand" style="margin-left: 10px">
+    <% if !@collaborator.name.nil? %>
+      <%= @collaborator.name.capitalize %></a>
+    <% end%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    </div>
+  </div>
+</nav>
+  <hr class="mt-2" style="background-color: black">
+
+<div class="col-sm-8 col-md-8 offset-md-2 offset-sm-2 col-8 offset-2" style="margin-top: 100px height: 100%; ">
+<%= link_to 'Voltar', collaborators_path, :class => "btn border-1 waves-effect waves-light border-primary mb-1" %>
+<div class="card" style="border-radius: 20px">
+  <div class="row">
+    <div class="col-4">
+      <div class="border offset-2 mt-4"style="width: 120px; height: 150px; text-align: center"><h6 class="mt-5">FOTO</h6></div>
+    </div>
+    <div class="col-4 mt-4">
+            <strong>CPF:</strong>
+      <p>
+
+        <%= @collaborator.cpf %>
+      </p>
+              <strong>Sálario:</strong>
+      <p>
+
+        <%= @collaborator.salary %>
+      </p>
+       <strong>Telefone:</strong>
+      <p>
+       
+        <%= @collaborator.personal_phone_number %>
+      </p>
+    </div>
+    <div class="col-4 mt-4">  
+     <strong>Aniversário:</strong>
+      <p>
+        <%= @collaborator.birthday %>
+      </p>
+        <strong>Disconto do Inss:</strong>
+      <p>
+
+        <%= @collaborator.inss %>
+      </p>
+              <strong>Contato de Referencia:</strong>
+      <p>
+
+        <%= @collaborator.reference_phone_number %>
+      </p>
+    </div>
+  </div>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Dados de endereço
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row">
+                <div class="col-3 offset-1 mt-2">
+                <strong>Estado:</strong>
+                  <p>
+                    <%= @collaborator.state %>
+                  </p>
+                  <strong>City:</strong>
+                  <p> 
+                      <%= @collaborator.city %>
+                  </p>
+                </div>
+                <div class="col-4">
+                 <strong>Neighborhood:</strong>
+                  <p>
+                    <%= @collaborator.neighborhood %>
+                  </p>
+                  <strong>Postal code:</strong>
+                  <p>
+                    <%= @collaborator.postal_code %>
+                  </p>
+                </div>
+                <div class="col-4">
+                <strong>Address:</strong>
+                  <p>
+                    <%= @collaborator.address %>
+                  </p>
+                  <strong>Number:</strong>
+                  <p>
+                    <%= @collaborator.number %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div >
+

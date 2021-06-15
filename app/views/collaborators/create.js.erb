@@ -1,0 +1,18 @@
+var qtdErrors = <%= @collaborator.errors.count %>
+console.log(qtdErrors)
+if(qtdErrors > 0 ){
+    $('#new-notice').html('<h5> Algo deu errado, verifique as informações </h5>')
+    setTimeout(() => {
+        $('#new-notice').remove()
+    }, 3000)
+}else{
+    var collabs = $('table#collaborators tbody')
+    collabs.append("<%= j render @collaborator unless @collaborator.errors.count > 0  %>") 
+    document.querySelector("#close-modal").click()
+    $('#notice').html('<small style="color: red"> Novo calaborador cadastrado com sucesso!! </small>')
+    setTimeout(() => {
+        $('#notice small').remove()
+    }, 3000)
+}
+
+

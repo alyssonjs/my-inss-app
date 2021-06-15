@@ -1,0 +1,291 @@
+<nav class='navbar navbar-expand-lg navbar-light bg-light>
+  <div class='container-fluid'>
+    <i class='fas fa-user fa-2x mt-1'></i>
+    <a class='navbar-brand' style='margin-left: 10px'>Novo Colaborador</a>
+    <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation'>
+      <span class='navbar-toggler-icon'></span>
+    </button>
+    <div class='collapse navbar-collapse' id='navbarNavDropdown'>
+    </div>
+  </div>
+</nav>
+<hr class='mt-2' style='background-color: black'>
+  
+<div class='col-sm-8 col-md-8 offset-md-2 offset-sm-2 col-8 ' style='margin-top: 100px height: 100%'>
+        <small class="offset-5" id="new-notice" style="color: red"><%= notice %></small>
+
+        <%= form_for @collaborator, method: :post, remote: true do |f| %>
+        <input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
+        <div class='row'>
+            <div class='card'  style='border-radius: 20px'>
+                <div class='card-header  border-5 border-warning' style='height: 30px; margin-bottom: -10px; background: #41C1E8'>
+                    <h4 class='card-title' style='margin-top: -10px; color: white' >
+                        Dados Pessoais
+                    </h4>
+                </div>
+                <div class='card-body'>
+                    <div class='row'>
+                        <div class='col-6 mt-2'>
+                            <label for='inputName' class='form-label offset-2'>Nome completo</label>
+                            <div class='col-lg-10 col-10 offset-2'>
+                                <input type='nome' class='form-control form-control-sm' id='exampleFormControlInput1' name='collaborator[name]' placeholder='Digite o nome'> 
+                            </div>
+                        </div>
+                        <div class='col-6'>
+                            <label for='inputCPF' class='col-sm-4 col-form-label'>CPF</label>
+                            <div class='col-lg-8 col-8'>
+                                <input type='cpf' placeholder='000.000.000-00' class='form-control form-control-sm' name='collaborator[cpf]' id='inputCpf' oninput='javascript: fMasc( this, mCPF )'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-6'>
+                            <div class='mb-1 col-12'>
+                                <label for='inputDate' class='col-sm-8 offset-2 col-form-label'>Data de Nascimento</label>
+                                <div class='col-lg-8 col-8 offset-2'>
+                                    <input type='date' class='form-control form-control-sm' name='collaborator[birthday]' id='inputBirth'>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-6 mt-2'>
+                            <label for='inputName' class='form-label offset-2'>Salário</label>
+                            <div class='col-lg-10 col-10 offset-2'>
+                                <input type='text' class='form-control form-control-sm salary' tep='0.5' min='1.0' id='exampleFormControlInput1' name='collaborator[salary]' placeholder='R$ 1.000,00' onchange='javascript: getValue(this)'> 
+    
+                            </div>
+                        </div>
+                        <div class='col-6'>
+                            <label for='inputCPF' class='col-sm-5 col-md-8  col-form-label '>Desconto do INSS</label>
+                            <div class='col-lg-8 col-8'>
+                                <input type='text'  placeholder='R$ 0,00' class='form-control form-control-sm inss' readonly name='collaborator[inss]' id='inputCpf'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-6'>
+                                <label for='tel' class='col-sm-4 col-md-8 col-form-label offset-2'>Seu telefone</label>
+                                <div class='col-lg-10 col-10 offset-2'>
+                                    <input type='text' placeholder='(00) 00000-000' class='form-control form-control-sm phone' name='collaborator[personal_phone_number]' id='inputPersonalNumber' oninput='javascript: maskNumber(this) '>
+                                </div>
+                        </div>
+                        <div class='col-6 '>
+                                <label for='tel' class='col-sm-6 col-md-8 col-form-label'>Contato Referencial</label>
+                                <div class='col-lg-8 col-8'>
+                                    <input type='text' placeholder='(00) 00000-000' class='form-control form-control-sm phone' name='collaborator[reference_phone_number]' id='inputReferencialNumber' oninput='javascript: maskNumber(this)'>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='col mt-3'>
+            <div class='card' style='border-radius: 20px'>
+                <div class='card-header  border-5 border-warning' style='height: 30px; margin-bottom: -10px; background: #41C1E8'>
+                    <h4 class='card-title' style='margin-top: -10px; color: white' >
+                        Endereço
+                    </h4>
+                </div>
+                <div class='card-body'>
+                    <div class='row'>
+                        <small class=' offset-3 font-bold'> Digite seu cep para preenchimento automatico </small>
+                        <div class='mb-1  col-4'>
+                            <label for='inputPostalCode' class='col-sm-4 col-form-label offset-3'>CEP</label>
+                            <div class='col-lg-8 col-8 offset-3'>
+                                <input type='postal_code'  placeholder='00.000-000' class='form-control form-control-sm' name='collaborator[postal_code]' id='inputPassword' oninput='javascript: maskCep(this)' onchange='javascript: getAddress(this.value)'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='mb-1 col-4'>
+                                <label for='inputState' class='col-sm-10 col-form-label offset-3'>Estado</label>
+                                <div class='col-lg-8 col-10 offset-3'>
+                                    <input type='state'  placeholder='UF' class='form-control form-control-sm state' name='collaborator[state]' id='inputPassword'>
+                                </div>
+                        </div>
+                        <div class='mb-1  col-2'>
+                                <label for='inputCity' class='col-sm-12 col-form-label'>Cidade</label>
+                                <div class='col-lg-12 col-12'>
+                                    <input type='city'  placeholder='Insira sua senha' class='form-control form-control-sm city' name='collaborator[city]' id='inputPassword'> 
+                                </div>
+                        </div>
+                        <div class='mb-1  col-4'>
+                            <label for='inputNeighborhood' class='col-sm-4 col-form-label'>Bairro</label>
+                            <div class='col-lg-8 col-8'>
+                                <input type='neighborhood'  placeholder='Bairro' class='form-control form-control-sm neighborhood' name='collaborator[neighborhood]' id='inputNeightborhood'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='mb-1  col-4'>
+                                <label for='inputAddress' class='col-sm-4 col-form-label offset-3'>Rua</label>
+                                <div class='col-lg-8 col-8 offset-3'>
+                                    <input type='address'  placeholder='Insira o endereço' class='form-control form-control-sm address' name='collaborator[address]' id='inputAddress'>
+                                </div>
+                        </div>
+                        <div class='mb-1 col-2'>
+                                <label for='inputNumber' class='col-sm-12 col-form-label'>Numero</label>
+                                <div class='col-lg-12 col-12'>
+                                    <input type='number' min='0' placeholder='Numero da residencia' class='form-control form-control-sm' name='collaborator[number]' id='inputNumber'>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='row mt-2'>
+                    <div class='col'>
+                        <button type="button" id="close-modal" class="btn border-1 waves-effect waves-light border-primary offset-5 ml-2" data-bs-dismiss="modal">Voltar</button>
+                    </div>
+                    <div class='col'>
+                        <button type='submit' class="btn border-1 waves-effect waves-light border-primary offset-1"  style="background: #41C1E8; color: white; width: 115px">Cadastrar</button>
+                    </div>
+                </div>
+        <% end %>
+</div>
+
+
+<script type='text/javascript'>
+
+    let salary, inss, address, neighborhood, city, state, states, cities, newCollaborator
+
+
+    if (!salary) salary = document.querySelector('.salary')
+    if (!inss) inss =  document.querySelector('.inss')
+    if (!address) address = document.querySelector('.address')
+    if (!neighborhood) neighborhood = document.querySelector('.neighborhood')
+    if (!city) city = document.querySelector('.city')
+    if (!state) state = document.querySelector('.state')
+    if (!newCollaborator) newCollaborator = document.querySelector('.new-collaborator')
+    
+    window.addEventListener('load', () => {
+        const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/`;
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+                if(xhr.readyState == 4){
+                    states = JSON.parse(xhr.response)
+                    states.forEach(state_info => {
+                        let option = document.createElement('option');
+                        option.text = state_info.sigla
+                        option.value = state_info.sigla
+                        option.id = state_info.id
+                        console.log(state_info)
+                        state.appendChild(option);
+                    })   
+                }
+            }
+
+        xhr.open('GET', url )
+
+        xhr.send()
+    });
+
+
+    salary.addEventListener('change', (event) => {
+
+        let value = salary.value.replace('R$','').replace('.', '')
+        
+        value = String(value)
+
+        const url = `/collaborators/call/${value}`;
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+                if(xhr.readyState == 4){
+                    inss.value = currency(xhr.response)
+                }else{
+
+                }
+            }
+
+        xhr.open('GET', url )
+
+        xhr.send()
+    });
+
+    function ValidaCPF(){	
+        var cpf = document.querySelector('.cpf').value; 
+        var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$/;
+
+        if (cpfValido.test(cpf) == true)	{ 
+            console.log('CPF Válido');	
+        } else	{	 
+            console.log('CPF Inválido');	
+        }
+    }
+
+    function fMasc(objeto,mascara) {
+        obj = objeto
+        masc = mascara
+        setTimeout('fMascEx()',1)
+    }
+
+    function fMascEx() {
+        obj.value = masc(obj.value)
+    }
+
+    function mCPF(cpf){
+        var max_chars = 14;
+        if(typeof cpf == 'number') return cpf = ''
+        if(cpf.length > max_chars) {
+            return cpf = cpf.substr(0, max_chars);
+        }else{
+        cpf = cpf.replace(/\D/g,'')
+        cpf = cpf.replace(/(\d{3})(\d)/,'$1.$2')
+        cpf = cpf.replace(/(\d{3})(\d)/,'$1.$2')
+        cpf = cpf.replace(/(\d{3})(\d{1,2})$/,'$1-$2')
+
+        return cpf    
+        }
+    }
+
+    function getValue(input) {
+        return input.value = currency(input.value)
+    }
+
+    function currency(value) {
+        value = Number(value.replace('.','').replace('R$', '').replace(',','.')).toLocaleString('pt-BR')
+        return value = `R$ ${value}`
+    }
+
+    function maskNumber(input){
+        let value = input.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+        return input.value = !value[2] ? value[1] : '(' + value[1] + ') ' + value[2] + (value[3] ? '-' + value[3] : '');
+    };
+
+    function maskCep(input){
+        let value = input.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})/);
+        return input.value = !value[2] ? value[1] : value[1] + '.' + value[2] + (value[3] ? '-' + value[3] : '');
+    };
+
+    function getAddress(cep) {
+        cep = cep.replace('.','').replace('-','')
+        if(cep.length != 8 ) return
+        const url = `https://viacep.com.br/ws/${cep}/json/`;
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            setTimeout(() => {
+                if(xhr.readyState == 4){
+                let result = JSON.parse(xhr.response)
+                console.log(result.erro)
+                if (result.erro){
+                    alert('O Cep informado não é valido');
+                }else{
+                    address.value = result.logradouro
+                    city.value = result.localidade
+                    neighborhood.value = result.bairro
+                    state.value = result.uf
+                }
+
+            }
+        }, 1000);
+        }
+
+        xhr.open('GET', url )
+
+        xhr.send()
+    }
+
+</script>
+
+
+

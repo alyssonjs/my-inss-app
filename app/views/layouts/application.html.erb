@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyInss</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <div >
+    <nav class="navbar navbar-light fixed-top " style="background: #41C1E8">
+      <div class="container-fluid border-5 border-warning">
+        <div class="row mt-2" style="margin-bottom: -20px">
+          <div class="col-2">
+              <i class="fas fa-crop fa-2x" style="color: white;"></i>
+          </div>
+          <div class="col-1">
+              <a class="navbar-brand" style="color: white"><h5>Meu I<span style="color: yellow"">N</span>SS</h5></a> 
+          </div>
+        </div>
+        <% if logged_in? %>
+          <div class="row">
+            <div class="col-7 ">    
+            <h2 class="text-capitalize mt-2 ml-2" style="font-size: 15px; color: white"> Bem vindo <%=current_user.name%> </h2>
+            </div>
+            <div class="col-5">
+              <%= link_to '', logout_path(current_user), method: :delete, data: { confirm: 'Tem certeza que deseja sair?' },  :class => "fas fa-power-off fa-2x mt-2", :style => "color: white"%>
+            </div>
+          </div>
+        <% else %>
+        <%= link_to 'Cadastrar', new_user_path, :class => "btn btn-light waves-effect waves-light" %>
+        <% end %>
+        </div>
+    </nav>
+    <body style="background: #F8F8F8; height: 100%">
+    <% if logged_in? %>
+      <div class="row"  style="background: white;">
+        <div class="col-12" style="background: #F8F8F8; padding-right:0; padding-left:0;" >
+          <%= yield %>
+        </div>
+      </div>
+      <%else %>
+      <div class="col-12">
+        <%= yield %>
+      </div>
+      <%end%>
+    </body>
+  </div>
+</html>
+
+
