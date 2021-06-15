@@ -11,8 +11,11 @@
 
 @font-face {
   font-family: 'FontAwesome';
-  src: url('/assets/fontawesome-webfont-82ff0fe46a6f60e0ab3c4a9891a0ae0a1f7b7e84c625f55358379177a2dcb202.eot');
-  src: url('/assets/fontawesome-webfont-82ff0fe46a6f60e0ab3c4a9891a0ae0a1f7b7e84c625f55358379177a2dcb202.eot?#iefix') format('embedded-opentype'), url('/assets/fontawesome-webfont-fa79d127baca4558a0b973f5f514b90fc5ef43314c41095f5cb285ffaa0a4029.woff2') format('woff2'), url('/assets/fontawesome-webfont-c9a0a23a23a3f6f7165cba218b40483a0b1750d92b49c40842f1d8f566f5f421.woff') format('woff'), url('/assets/fontawesome-webfont-2794b002e3568f5abce8991e2431ca79e0ce84a08ea1268884b4e097b62762a6.ttf') format('truetype'), url('/assets/fontawesome-webfont-67c6c8e9ffb0fcd7c7c64eaff12a298abf5b54a54b54f0e6c4c49161dba62d6d.svg#fontawesomeregular') format('svg');
+  src: url('/assets/fontawesome-webfont.eot?v=4.0.3');
+  src: url('/assets/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), 
+  url('/assets/fontawesome-webfont.woff?v=4.0.3') format('woff'),
+  url('/assets/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), 
+  url('/assets/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14927,8 +14930,11 @@ textarea.form-control-lg {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("/assets/fontawesome-webfont-82ff0fe46a6f60e0ab3c4a9891a0ae0a1f7b7e84c625f55358379177a2dcb202.eot");
-  src: url("/assets/fontawesome-webfont-82ff0fe46a6f60e0ab3c4a9891a0ae0a1f7b7e84c625f55358379177a2dcb202.eot?#iefix") format("embedded-opentype"), url("/assets/fontawesome-webfont-fa79d127baca4558a0b973f5f514b90fc5ef43314c41095f5cb285ffaa0a4029.woff2") format("woff2"), url("/assets/fontawesome-webfont-c9a0a23a23a3f6f7165cba218b40483a0b1750d92b49c40842f1d8f566f5f421.woff") format("woff"), url("/assets/fontawesome-webfont-2794b002e3568f5abce8991e2431ca79e0ce84a08ea1268884b4e097b62762a6.ttf") format("truetype"), url("/assets/fontawesome-webfont-67c6c8e9ffb0fcd7c7c64eaff12a298abf5b54a54b54f0e6c4c49161dba62d6d.svg#fontawesomeregular") format("svg");
+  src: url('/assets/fontawesome-webfont.eot?v=4.0.3');
+  src: url('/assets/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), 
+  url('/assets/fontawesome-webfont.woff?v=4.0.3') format('woff'),
+  url('/assets/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), 
+  url('/assets/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
