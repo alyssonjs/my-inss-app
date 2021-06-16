@@ -1,5 +1,5 @@
 var qtdErrors = <%= @collaborator.errors.count %>
-console.log(qtdErrors)
+
 if(qtdErrors > 0 ){
     $('#new-notice').html('<h5> Algo deu errado, verifique as informações </h5>')
     setTimeout(() => {

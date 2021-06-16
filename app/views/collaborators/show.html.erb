@@ -13,8 +13,7 @@
     </div>
   </div>
 </nav>
-  <hr class="mt-2" style="background-color: black">
-
+<hr class="mt-2" style="background-color: black">
 <div class="col-sm-8 col-md-8 offset-md-2 offset-sm-2 col-8 offset-2" style="margin-top: 100px height: 100%; ">
 <%= link_to 'Voltar', collaborators_path, :class => "btn border-1 waves-effect waves-light border-primary mb-1" %>
 <div class="card" style="border-radius: 20px">
@@ -23,11 +22,11 @@
       <div class="border offset-2 mt-4"style="width: 120px; height: 150px; text-align: center"><h6 class="mt-5">FOTO</h6></div>
     </div>
     <div class="col-4 mt-4">
-        <strong>CPF:</strong>
+      <strong>CPF:</strong>
       <p>
         <%= @collaborator.cpf %>
       </p>
-          <strong>Sálario:</strong>
+      <strong>Sálario:</strong>
       <p>
         <%= @collaborator.salary %>
       </p>
@@ -37,15 +36,15 @@
       </p>
     </div>
     <div class="col-4 mt-4">  
-     <strong>Aniversário:</strong>
+      <strong>Aniversário:</strong>
       <p>
         <%= @collaborator.birthday %>
       </p>
-        <strong>Disconto do Inss:</strong>
+      <strong>Disconto do Inss:</strong>
       <p>
         <%= @collaborator.inss %>
       </p>
-        <strong>Contato de Referencia:</strong>
+      <strong>Contato de Referencia:</strong>
       <p>
         <%= @collaborator.reference_phone_number %>
       </p>
@@ -63,33 +62,33 @@
             <div class="row">
                 <div class="col-3 offset-1 mt-2">
                 <strong>Estado:</strong>
-                  <p>
-                    <%= @collaborator.state %>
-                  </p>
-                  <strong>Cidade:</strong>
-                  <p> 
-                    <%= @collaborator.city %>
-                  </p>
+                    <p>
+                      <%= @collaborator.state %>
+                    </p>
+                    <strong>Cidade:</strong>
+                    <p> 
+                      <%= @collaborator.city %>
+                    </p>
                 </div>
                 <div class="col-4">
-                 <strong>Bairro:</strong>
-                  <p>
-                    <%= @collaborator.neighborhood %>
-                  </p>
-                  <strong>CEP:</strong>
-                  <p>
-                    <%= @collaborator.postal_code %>
-                  </p>
-                </div>
+                  <strong>Bairro:</strong>
+                    <p>
+                      <%= @collaborator.neighborhood %>
+                    </p>
+                    <strong>CEP:</strong>
+                    <p>
+                      <%= @collaborator.postal_code %>
+                    </p>
+                  </div>
                 <div class="col-4">
-                <strong>Endereço:</strong>
-                  <p>
-                    <%= @collaborator.address %>
-                  </p>
-                  <strong>Number:</strong>
-                  <p>
-                    <%= @collaborator.number %>
-                  </p>
+                  <strong>Endereço:</strong>
+                    <p>
+                      <%= @collaborator.address %>
+                    </p>
+                    <strong>Number:</strong>
+                    <p>
+                      <%= @collaborator.number %>
+                    </p>
                 </div>
               </div>
             </div>

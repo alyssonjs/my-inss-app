@@ -19,7 +19,7 @@
         <%= collaborator.inss %>
         </td>
         <td style="text-align: center">
-        <a type="button" class="far fa-edit" style="color: black ;" href="/collaborators/<%= collaborator.id %>/edit" data-bs-toggle="modal" data-bs-target="#editCollaboratorModal" data-backdrop="false" data-remote="true"></a>
+            <a type="button" class="far fa-edit" style="color: black ;" href="/collaborators/<%= collaborator.id %>/edit" data-bs-toggle="modal" data-bs-target="#editCollaboratorModal" data-backdrop="false" data-remote="true"></a>
         <td style="text-align: center"><%= link_to '', collaborator_path(collaborator), method: :delete, data: { confirm: 'Esse colaborador será excluido permanentemente. Deseja realmente concluir a ação?' }, :class => "fas fa-trash-alt", :style => "color: black" %></td>
     </tr>
 <%end%>

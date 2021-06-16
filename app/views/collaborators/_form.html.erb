@@ -142,14 +142,14 @@
             </div>
         </div>
     </div>
-         <div class="row mt-2 mb-2">
-                <div class="col offset-3">
-                    <%= link_to 'Voltar', collaborators_path, :class => "btn border-1 waves-effect waves-light border-primary" %>
-                </div>
-                <div class="col">
-                    <%= button_to 'Salvar', collaborators_path, :remote => true, :class => "btn border-1 waves-effect waves-light border-primary", :style => "background: #41C1E8; color: white" %>
-                </div>
+        <div class="row mt-2 mb-2">
+            <div class="col offset-3">
+                <%= link_to 'Voltar', collaborators_path, :class => "btn border-1 waves-effect waves-light border-primary" %>
             </div>
+            <div class="col">
+                <%= button_to 'Salvar', collaborators_path, :remote => true, :class => "btn border-1 waves-effect waves-light border-primary", :style => "background: #41C1E8; color: white" %>
+            </div>
+        </div>
 <% end %>
 </div>
 <script type="text/javascript">
@@ -184,16 +184,6 @@
         xhr.send()
     });
 
-    function ValidaCPF(){	
-        var cpf = document.querySelector(".cpf").value; 
-        var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$/;
-
-        if (cpfValido.test(cpf) == true)	{ 
-            console.log("CPF Válido");	
-        } else	{	 
-            console.log("CPF Inválido");	
-        }
-    }
 
     function fMasc(objeto,mascara) {
         obj = objeto

@@ -10,12 +10,10 @@
   </div>
 </nav>
 <hr class='mt-2' style='background-color: black'>
-  
 <div class='col-sm-8 col-md-8 offset-md-2 offset-sm-2 col-8 ' style='margin-top: 100px height: 100%'>
-        <small class="offset-5" id="new-notice" style="color: red"><%= notice %></small>
-
-        <%= form_for @collaborator, method: :post, remote: true do |f| %>
-        <input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
+    <small class="offset-5" id="new-notice" style="color: red"><%= notice %></small>
+    <%= form_for @collaborator, method: :post, remote: true do |f| %>
+    <input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
         <div class='row'>
             <div class='card'  style='border-radius: 20px'>
                 <div class='card-header  border-5 border-warning' style='height: 30px; margin-bottom: -10px; background: #41C1E8'>
@@ -53,7 +51,6 @@
                             <label for='inputName' class='form-label offset-2'>Salário</label>
                             <div class='col-lg-10 col-10 offset-2'>
                                 <input type='text' class='form-control form-control-sm salary' tep='0.5' min='1.0' id='exampleFormControlInput1' name='collaborator[salary]' placeholder='R$ 1.000,00' onchange='javascript: getValue(this)'> 
-    
                             </div>
                         </div>
                         <div class='col-6'>
@@ -65,16 +62,16 @@
                     </div>
                     <div class='row'>
                         <div class='col-6'>
-                                <label for='tel' class='col-sm-4 col-md-8 col-form-label offset-2'>Seu telefone</label>
-                                <div class='col-lg-10 col-10 offset-2'>
-                                    <input type='text' placeholder='(00) 00000-000' class='form-control form-control-sm phone' name='collaborator[personal_phone_number]' id='inputPersonalNumber' oninput='javascript: maskNumber(this) '>
-                                </div>
+                            <label for='tel' class='col-sm-4 col-md-8 col-form-label offset-2'>Seu telefone</label>
+                            <div class='col-lg-10 col-10 offset-2'>
+                                <input type='text' placeholder='(00) 00000-000' class='form-control form-control-sm phone' name='collaborator[personal_phone_number]' id='inputPersonalNumber' oninput='javascript: maskNumber(this) '>
+                            </div>
                         </div>
                         <div class='col-6 '>
-                                <label for='tel' class='col-sm-6 col-md-8 col-form-label'>Contato Referencial</label>
-                                <div class='col-lg-8 col-8'>
-                                    <input type='text' placeholder='(00) 00000-000' class='form-control form-control-sm phone' name='collaborator[reference_phone_number]' id='inputReferencialNumber' oninput='javascript: maskNumber(this)'>
-                                </div>
+                            <label for='tel' class='col-sm-6 col-md-8 col-form-label'>Contato Referencial</label>
+                            <div class='col-lg-8 col-8'>
+                                <input type='text' placeholder='(00) 00000-000' class='form-control form-control-sm phone' name='collaborator[reference_phone_number]' id='inputReferencialNumber' oninput='javascript: maskNumber(this)'>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,6 +87,7 @@
                 <div class='card-body'>
                     <div class='row'>
                         <small class=' offset-3 font-bold'> Digite seu cep para preenchimento automatico </small>
+                        <small class="offset-3" id="cep-notice" style="color: red"><%= notice %></small>
                         <div class='mb-1  col-4'>
                             <label for='inputPostalCode' class='col-sm-4 col-form-label offset-3'>CEP</label>
                             <div class='col-lg-8 col-8 offset-3'>
@@ -99,16 +97,16 @@
                     </div>
                     <div class='row'>
                         <div class='mb-1 col-4'>
-                                <label for='inputState' class='col-sm-10 col-form-label offset-3'>Estado</label>
-                                <div class='col-lg-8 col-10 offset-3'>
-                                    <input type='state'  placeholder='UF' class='form-control form-control-sm state' name='collaborator[state]' id='inputPassword'>
-                                </div>
+                            <label for='inputState' class='col-sm-10 col-form-label offset-3'>Estado</label>
+                            <div class='col-lg-8 col-10 offset-3'>
+                                <input type='state'  placeholder='UF' class='form-control form-control-sm state' name='collaborator[state]' id='inputPassword'>
+                            </div>
                         </div>
                         <div class='mb-1  col-2'>
-                                <label for='inputCity' class='col-sm-12 col-form-label'>Cidade</label>
-                                <div class='col-lg-12 col-12'>
-                                    <input type='city'  placeholder='Insira sua senha' class='form-control form-control-sm city' name='collaborator[city]' id='inputPassword'> 
-                                </div>
+                            <label for='inputCity' class='col-sm-12 col-form-label'>Cidade</label>
+                            <div class='col-lg-12 col-12'>
+                                <input type='city'  placeholder='Insira sua senha' class='form-control form-control-sm city' name='collaborator[city]' id='inputPassword'> 
+                            </div>
                         </div>
                         <div class='mb-1  col-4'>
                             <label for='inputNeighborhood' class='col-sm-4 col-form-label'>Bairro</label>
@@ -119,16 +117,16 @@
                     </div>
                     <div class='row'>
                         <div class='mb-1  col-4'>
-                                <label for='inputAddress' class='col-sm-4 col-form-label offset-3'>Rua</label>
-                                <div class='col-lg-8 col-8 offset-3'>
-                                    <input type='address'  placeholder='Insira o endereço' class='form-control form-control-sm address' name='collaborator[address]' id='inputAddress'>
-                                </div>
+                            <label for='inputAddress' class='col-sm-4 col-form-label offset-3'>Rua</label>
+                            <div class='col-lg-8 col-8 offset-3'>
+                                <input type='address'  placeholder='Insira o endereço' class='form-control form-control-sm address' name='collaborator[address]' id='inputAddress'>
+                            </div>
                         </div>
                         <div class='mb-1 col-2'>
-                                <label for='inputNumber' class='col-sm-12 col-form-label'>Numero</label>
-                                <div class='col-lg-12 col-12'>
-                                    <input type='number' min='0' placeholder='Numero da residencia' class='form-control form-control-sm' name='collaborator[number]' id='inputNumber'>
-                                </div>
+                            <label for='inputNumber' class='col-sm-12 col-form-label'>Numero</label>
+                            <div class='col-lg-12 col-12'>
+                                <input type='number' min='0' placeholder='Numero da residencia' class='form-control form-control-sm' name='collaborator[number]' id='inputNumber'>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -140,8 +138,8 @@
                     <div class='col'>
                         <button type='submit' class="btn border-1 waves-effect waves-light border-primary offset-1"  style="background: #41C1E8; color: white; width: 115px">Cadastrar</button>
                     </div>
-                </div>
-        <% end %>
+            </div>
+    <% end %>
 </div>
 
 
@@ -169,7 +167,6 @@
                         option.text = state_info.sigla
                         option.value = state_info.sigla
                         option.id = state_info.id
-                        console.log(state_info)
                         state.appendChild(option);
                     })   
                 }
@@ -265,17 +262,18 @@
         xhr.onreadystatechange = () => {
             setTimeout(() => {
                 if(xhr.readyState == 4){
-                let result = JSON.parse(xhr.response)
-                console.log(result.erro)
-                if (result.erro){
-                    alert('O Cep informado não é valido');
-                }else{
-                    address.value = result.logradouro
-                    city.value = result.localidade
-                    neighborhood.value = result.bairro
-                    state.value = result.uf
-                }
-
+                    let result = JSON.parse(xhr.response)
+                    if (result.erro){
+                        $('#cep-notice').html('<small style="color: red"> O CEP FORNECIDO É INVALIDO, TENTE NOVAMENTE</small>')
+                            setTimeout(() => {
+                                $('#cep-notice small').remove()
+                            }, 3000)
+                    }else{
+                        address.value = result.logradouro
+                        city.value = result.localidade
+                        neighborhood.value = result.bairro
+                        state.value = result.uf
+                    }
             }
         }, 1000);
         }
