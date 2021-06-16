@@ -7,12 +7,15 @@ to inicialize docker just fallow the steps:
 if you have any permissions issue, just run the following commands with "sudo";
 
 - docker-compose build 
-- docker-compose run app rake db:create
-- docker-compose run app rake db:migrate
+- docker-compose run web yarn install --check-files
+- docker-compose run web rake db:create
+- docker-compose run web rake db:migrate
+- docker-compose run web rake db:seed
 - docker-compose up
 
 and the server is on!
 
+you can access it on localhost:3000
 ## Using:
 
 - Ruby version 2.7.5 with Rails 5.2.6
@@ -37,6 +40,5 @@ and the server is on!
 - TDD with Rspec using Faker, FactoryBot, Shoulda Matchers end DatabaseCleaner for:
     - Models
     - Rounting
-
-
+    
 - CI configuration
